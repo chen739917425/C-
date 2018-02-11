@@ -58,8 +58,11 @@ class elevator
 }; 
 void elevator::updata(bool drt,int up_change,int down_change,int enter_change)
 {
-	if (drt&&floor>1)
-	  --floor;
+	if (drt)
+	{
+		if (floor>1)
+		  --floor;
+	}
 	else
 	  ++floor; //更新所在楼层 
 	up_num+=up_change; //更新电梯内要上10F的人数
