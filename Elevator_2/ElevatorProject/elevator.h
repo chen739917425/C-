@@ -222,14 +222,14 @@ void console::ask_solve(int N,const passenger* psg,elevator& ele)
 				if (psg->get_start()>psg->get_goal()) //若乘客要下楼
 				{
 					//更新改向点 
-					for (j=10;j>ele.get_floor();--j)
+					for (j=10;j>1;--j)
 					{
 						if (plan[j]!=0&&plan[j]!=4&&plan[j]!=6)
 						  break;
 					}
 					if (j<psg->get_start())
 					{
-						plan_clear(ele.get_floor(),psg->get_start(),4,6); //清除之前的改向或停住计划	
+						plan_clear(1,psg->get_start(),4,6); //清除之前的改向或停住计划	
 						plan[psg->get_start()]=1;
 					} 
 					else 
@@ -300,14 +300,14 @@ void console::ask_solve(int N,const passenger* psg,elevator& ele)
 				if (psg->get_start()<psg->get_goal()) //若乘客要上楼
 				{
 					//更新改向点 
-					for (j=1;j<ele.get_floor();++j)
+					for (j=1;j<10;++j)
 					{
 						if (plan[j]!=0&&plan[j]!=3&&plan[j]!=5)
 						  break;
 					}
 					if (j>psg->get_start())
 					{
-						plan_clear(psg->get_start(),ele.get_floor(),3,5); //清除之前的改向或停住计划 
+						plan_clear(psg->get_start(),10,3,5); //清除之前的改向或停住计划 
 						plan[psg->get_start()]=1;	
 					} 
 					else 
